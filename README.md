@@ -4,7 +4,7 @@
 
 Dit project bevat een RESTful API voor het beheren van informatie over fitnesssupplementen.
 De API stelt gebruikers in staat om informatie over supplementbedrijven en details van de supplementen
-te raadplegen, maken, bijwerken verwijderen.
+te raadplegen, maken, bij te werken en te verwijderen.
 
 ## API Endpoints
 
