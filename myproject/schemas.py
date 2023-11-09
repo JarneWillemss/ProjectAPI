@@ -1,35 +1,23 @@
 from pydantic import BaseModel
 
 
-class ItemBase(BaseModel):
-    title: str
-    description: str | None = None
+class SupplementCompanyCreate(BaseModel):
+    name: str
+    email: str
 
-
-class ItemCreate(ItemBase):
-    pass
-
-
-class Item(ItemBase):
+class SupplementCompany(SupplementCompanyCreate):
     id: int
-    owner_id: int
 
     class Config:
         orm_mode = True
 
+class ItemCreate(BaseModel):
+    name: str
+    description: str
+    company_id: int
 
-class UserBase(BaseModel):
-    email: str
-
-
-class UserCreate(UserBase):
-    password: str
-
-
-class User(UserBase):
+class Item(ItemCreate):
     id: int
-    is_active: bool
-    items: list[Item] = []
 
     class Config:
         orm_mode = True
