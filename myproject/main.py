@@ -3,8 +3,8 @@ from sqlalchemy.orm import Session
 
 import os
 import crud
-import models
 import schemas
+import models
 from database import SessionLocal, engine
 
 print("We are in the main.......")
