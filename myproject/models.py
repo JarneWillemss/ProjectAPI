@@ -16,6 +16,7 @@ class SupplementCompany(Base):
     email = Column(String, unique=True, index=True)
     items = relationship("Item", back_populates="company")
 
+
 class Item(Base):
     __tablename__ = "items"
 
