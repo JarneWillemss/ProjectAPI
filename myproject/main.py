@@ -34,6 +34,14 @@ def read_supplement_companies(skip: int = 0, limit: int = 100, db: Session = Dep
     return supplement_companies
 
 
+@app.post("/supplement_companies/", response_model=schemas.SupplementCompany)
+def create_supplement_company(
+    company: schemas.SupplementCompanyCreate,
+    db: Session = Depends(get_db),
+):
+    return crud.create_supplement_company(db=db, company=company)
+
+
 @app.post("/items/", response_model=schemas.Item)
 def create_item(item: schemas.ItemCreate, db: Session = Depends(get_db)):
     return crud.create_item(db=db, item=item)
