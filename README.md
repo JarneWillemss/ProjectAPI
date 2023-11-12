@@ -21,3 +21,12 @@ De API heeft verschillende endpoints voor het beheren van de gegevens:
 Omdat er zoveel verschillende fitnessuplementen en supplementbedrijven bestaan leek het mij interessant om een API te creeëren
 die alle supplementbedrijven en de supplementen zelf laat zien. De gebruiker kan bijvoorbeeld een bedrijf opzoeken en zo alle
 supplementen vinden die verkocht worden door dat bedrijf. Dit idee stamt voort uit mijn persoonlijke interesse voor fitness.
+
+## OpenAPI Docs
+
+
+
+
+
+
+
