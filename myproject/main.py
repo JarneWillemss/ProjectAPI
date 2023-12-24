@@ -14,7 +14,7 @@ if not os.path.exists('.\sqlitedb'):
 
 print("Creating tables.......")
 models.Base.metadata.create_all(bind=engine)
-print("Tables created.......")
+print("Tables created........")
 
 app = FastAPI()
 
