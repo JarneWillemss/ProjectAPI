@@ -24,3 +24,9 @@ class Item(ItemCreate):
 
     class Config:
         orm_mode = True
+
+
+class ItemUpdate(BaseModel):
+    name: str = None
+    description: str = None
+    company_id: int = None

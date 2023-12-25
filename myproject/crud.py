@@ -15,6 +15,7 @@ def create_item(db: Session, item: schemas.ItemCreate):
 def get_items(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Item).offset(skip).limit(limit).all()
 
+
 def get_item(db: Session, item_id: int):
     return db.query(models.Item).filter(models.Item.id == item_id).first()
 
@@ -40,7 +41,7 @@ def create_supplement_company(db: Session, company: schemas.SupplementCompanyCre
     return db_company
 
 
-def update_item(db: Session, item_id: int, updated_item: ItemUpdate):
+def update_item(db: Session, item_id: int, updated_item: schemas.ItemUpdate):
     db_item = db.query(models.Item).filter(models.Item.id == item_id).first()
 
     if db_item:
