@@ -39,3 +39,16 @@ def create_supplement_company(db: Session, company: schemas.SupplementCompanyCre
     db.refresh(db_company)
     return db_company
 
+
+def update_item(db: Session, item_id: int, updated_item: ItemUpdate):
+    db_item = db.query(models.Item).filter(models.Item.id == item_id).first()
+
+    if db_item:
+        for key, value in updated_item.dict(exclude_unset=True).items():
+            setattr(db_item, key, value)
+
+        db.commit()
+        db.refresh(db_item)
+
+    return db_item
+

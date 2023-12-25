@@ -66,3 +66,10 @@ def read_item(item_id: int, db: Session = Depends(get_db)):
     if item is None:
         raise HTTPException(status_code=404, detail="Item not found")
     return item
+
+@app.put("/items/{item_id}", response_model=schemas.Item)
+def update_item(item_id: int, updated_item: schemas.ItemUpdate, db: Session = Depends(get_db)):
+    item = crud.update_item(db, item_id, updated_item)
+    if item is None:
+        raise HTTPException(status_code=404, detail="Item not found")
+    return item
