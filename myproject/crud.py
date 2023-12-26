@@ -2,7 +2,6 @@ from sqlalchemy.orm import Session, joinedload
 
 import models
 import schemas
-import auth
 
 
 def create_item(db: Session, item: schemas.ItemCreate):
