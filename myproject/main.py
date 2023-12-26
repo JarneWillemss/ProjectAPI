@@ -5,6 +5,7 @@ import os
 import crud
 import schemas
 import models
+import auth
 from database import SessionLocal, engine
 
 print("We are in the main.......")
@@ -26,6 +27,12 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+@app.post("/users/", response_model=schemas.UserCreate)
+def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    db_user = crud.create_user(db, user)
+    return db_user
 
 
 @app.get("/supplement_companies/", response_model=list[schemas.SupplementCompany])
