@@ -35,8 +35,7 @@ def get_supplement_companies_with_items(db: Session, skip: int = 0, limit: int =
 
 
 def create_supplement_company(db: Session, company: schemas.SupplementCompanyCreate):
-    hashed_password = auth.get_password_hash(company.password)
-    db_company = models.SupplementCompany(**company.dict(), password=hashed_password)
+    db_company = models.SupplementCompany(**company.dict())
     db.add(db_company)
     db.commit()
     db.refresh(db_company)
