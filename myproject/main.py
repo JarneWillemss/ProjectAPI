@@ -31,8 +31,7 @@ def get_db():
 
 @app.post("/users/", response_model=schemas.UserCreate)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.create_user(db, user)
-    return db_user
+    return crud.create_user(db=db, user=user)
 
 
 @app.get("/supplement_companies/", response_model=list[schemas.SupplementCompany])
