@@ -1,5 +1,6 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
+from passlib.hash import bcrypt
 
 import os
 import crud
@@ -39,6 +40,9 @@ def create_supplement_company(
     company: schemas.SupplementCompanyCreate,
     db: Session = Depends(get_db),
 ):
+    hashed_password = bcrypt.hash(company.password)
+    company_dict = company.dict()
+    company_dict["password"] = hashed_password
     return crud.create_supplement_company(db=db, company=company)
 
 
