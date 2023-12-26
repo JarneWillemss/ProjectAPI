@@ -6,6 +6,13 @@ class UserCreate(BaseModel):
     password: str
 
 
+class User(UserCreate):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
 class SupplementCompanyCreate(BaseModel):
     name: str
     email: str
