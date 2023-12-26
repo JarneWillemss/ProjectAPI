@@ -4,6 +4,7 @@ from pydantic import BaseModel
 class SupplementCompanyCreate(BaseModel):
     name: str
     email: str
+    password: str
 
 
 class SupplementCompany(SupplementCompanyCreate):
