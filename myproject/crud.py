@@ -2,11 +2,10 @@ from sqlalchemy.orm import Session, joinedload
 
 import models
 import schemas
-import auth
 
 
 def create_user(db: Session, user: schemas.UserCreate):
-    db_user = models.User(**user.dict())
+    db_user = models.User(name=user.name, password=user.password)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
@@ -61,4 +60,3 @@ def update_item(db: Session, item_id: int, updated_item: schemas.ItemUpdate):
         db.refresh(db_item)
 
     return db_item
-
