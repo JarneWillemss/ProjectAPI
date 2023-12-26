@@ -15,6 +15,7 @@ class SupplementCompany(Base):
     name = Column(String, index=True)
     email = Column(String, unique=True, index=True)
     items = relationship("Item", back_populates="company")
+    password = Column(String)
 
 
 class Item(Base):

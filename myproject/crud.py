@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session, joinedload
+from passlib.hash import bcrypt
 
 import models
 import schemas
@@ -34,6 +35,7 @@ def get_supplement_companies_with_items(db: Session, skip: int = 0, limit: int =
 
 
 def create_supplement_company(db: Session, company: schemas.SupplementCompanyCreate):
+    hashed_password = bcrypt.hash(company['password'])
     db_company = models.SupplementCompany(**company.dict())
     db.add(db_company)
     db.commit()
