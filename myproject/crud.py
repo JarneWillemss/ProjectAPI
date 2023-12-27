@@ -1,15 +1,10 @@
 from sqlalchemy.orm import Session, joinedload
 
-import models
 import schemas
 import auth
 
 from sqlalchemy.orm import Session
-from . import models
-
-
-def get_user_by_name(db: Session, username: str):
-    return db.query(models.User).filter(models.User.name == username).first()
+import models
 
 
 def create_user(db: Session, user: schemas.UserCreate):
