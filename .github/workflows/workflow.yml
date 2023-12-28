@@ -24,6 +24,7 @@ jobs:
         run: |
           pip install hypothesis
           pip install greenlet
+          pip install curio
           pip install -r requirements.txt
           
 
