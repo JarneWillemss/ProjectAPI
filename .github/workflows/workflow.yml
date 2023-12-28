@@ -16,5 +16,9 @@ jobs:
       - name: Docker Build
         run: docker build -t ${{ secrets.DOCKER_USER }}/project_api_eind:latest .
 
+      - name: Run Tests
+        run: |
+            pytest
+
       - name: Upload container to Docker Hub with Push
         run: docker push ${{ secrets.DOCKER_USER }}/project_api_eind:latest
