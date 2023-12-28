@@ -22,7 +22,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install hypothesis greenlet
+          pip install hypothesis
+          pip install greenlet
           pip install -r requirements.txt
           
 
