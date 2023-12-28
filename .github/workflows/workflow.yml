@@ -16,6 +16,10 @@ jobs:
       - name: Docker Build
         run: docker build -t ${{ secrets.DOCKER_USER }}/project_api_eind:latest .
 
+      - name: Install pytest
+        run: |
+            pip install pytest
+
       - name: Run Tests
         run: |
           pytest
