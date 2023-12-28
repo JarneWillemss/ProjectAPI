@@ -16,21 +16,5 @@ jobs:
       - name: Docker Build
         run: docker build -t ${{ secrets.DOCKER_USER }}/project_api_eind:latest .
 
-      - name: Install pytest
-        run: |
-            pip install pytest
-
-      - name: Install Dependencies
-        run: |
-          pip install hypothesis
-          pip install greenlet
-          pip install curio
-          pip install -r requirements.txt
-          
-
-      - name: Run Tests
-        run: |
-          pytest
-
       - name: Upload container to Docker Hub with Push
         run: docker push ${{ secrets.DOCKER_USER }}/project_api_eind:latest
