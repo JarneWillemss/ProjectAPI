@@ -22,7 +22,9 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          pip install hypothesis greenlet
           pip install -r requirements.txt
+          
 
       - name: Run Tests
         run: |
